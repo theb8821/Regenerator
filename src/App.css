@@ -7,6 +7,43 @@
   flex-direction: column;
 }
 
+.method-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.method-selector label {
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.method-selector select {
+  background: #121212;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.method-selector select:hover {
+  box-shadow: 0 0 10px rgba(255, 183, 3, 0.2);
+}
+
 .games-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));

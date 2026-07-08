@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './LotteryCard.css';
 
-const LotteryCard = ({ game }) => {
+const LotteryCard = ({ game, method }) => {
   const [numbers, setNumbers] = useState(game.placeholder);
   const [isGenerating, setIsGenerating] = useState(false);
 
@@ -9,8 +9,12 @@ const LotteryCard = ({ game }) => {
     setIsGenerating(true);
     // Simulate generation delay
     setTimeout(() => {
-      // Use the injected crypto generator
-      setNumbers(game.generator()); 
+      // Use the chosen engine based on the global dropdown
+      if (method === 'extrapolate') {
+        setNumbers(game.extrapolator());
+      } else {
+        setNumbers(game.generator()); 
+      }
       setIsGenerating(false);
     }, 600);
   };
