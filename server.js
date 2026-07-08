@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import axios from 'axios';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -83,10 +84,15 @@ app.get('/api/history', async (req, res) => {
 });
 
 const distPath = path.join(__dirname, 'dist');
+const indexHtmlPath = path.join(distPath, 'index.html');
+const indexHtml = fs.existsSync(indexHtmlPath) ? fs.readFileSync(indexHtmlPath, 'utf8') : null;
 app.use(express.static(distPath));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(distPath, 'index.html'));
+  if (!indexHtml) {
+    return res.status(503).send('Frontend build not found. Run `npm run build` before starting the server.');
+  }
+  res.type('html').send(indexHtml);
 });
 
 const PORT = process.env.PORT || 3001;
