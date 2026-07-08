@@ -2,16 +2,17 @@ import React from 'react';
 import Header from './components/Header';
 import LotteryCard from './components/LotteryCard';
 import Footer from './components/Footer';
+import { generatePick, generateLotto, generatePowerball, generateMegaMillions } from './utils/lotteryGenerators';
 import './App.css';
 
 function App() {
   const games = [
-    { name: "Pick 3", placeholder: "1 - 2 - 3" },
-    { name: "Pick 4", placeholder: "1 - 2 - 3 - 4" },
-    { name: "Pick 5", placeholder: "1 - 2 - 3 - 4 - 5" },
-    { name: "Lotto", placeholder: "05 - 12 - 23 - 34 - 39 - 41" },
-    { name: "Powerball", placeholder: "10 - 22 - 31 - 45 - 50 | PB: 12" },
-    { name: "Mega Millions", placeholder: "04 - 15 - 26 - 37 - 48 | MB: 09" }
+    { name: "Pick 3", placeholder: "X - X - X", generator: () => generatePick(3) },
+    { name: "Pick 4", placeholder: "X - X - X - X", generator: () => generatePick(4) },
+    { name: "Pick 5", placeholder: "X - X - X - X - X", generator: () => generatePick(5) },
+    { name: "Lotto", placeholder: "XX - XX - XX - XX - XX - XX", generator: generateLotto },
+    { name: "Powerball", placeholder: "XX - XX - XX - XX - XX | PB: XX", generator: generatePowerball },
+    { name: "Mega Millions", placeholder: "XX - XX - XX - XX - XX | MB: XX", generator: generateMegaMillions }
   ];
 
   return (

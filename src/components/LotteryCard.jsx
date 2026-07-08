@@ -9,8 +9,8 @@ const LotteryCard = ({ game }) => {
     setIsGenerating(true);
     // Simulate generation delay
     setTimeout(() => {
-      // In phase 2, we will call the actual algorithm here
-      setNumbers(game.placeholder); 
+      // Use the injected crypto generator
+      setNumbers(game.generator()); 
       setIsGenerating(false);
     }, 600);
   };
