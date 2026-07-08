@@ -87,8 +87,8 @@ app.get('/api/history', async (req, res) => {
 });
 
 // Serve the React frontend for any unknown routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+app.get('/*', (req, res) => {
+  res.status(404).send("API Server is running. Use /api/history to get lottery data.");
 });
 
 const PORT = 3001;
