@@ -1,0 +1,109 @@
+.lottery-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.lottery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(255, 183, 3, 0.1);
+  border-color: rgba(255, 183, 3, 0.2);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.game-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.game-logo-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), #e85d04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-circle {
+  font-weight: bold;
+  color: #121212;
+  font-size: 0.9rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.numbers-display {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  min-height: 24px;
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(255, 183, 3, 0.3);
+  transition: opacity 0.3s ease;
+}
+
+.numbers-display.generating {
+  opacity: 0.5;
+  animation: pulse 0.6s infinite alternate;
+}
+
+@keyframes pulse {
+  from { opacity: 0.3; }
+  to { opacity: 0.8; }
+}
+
+.generate-btn {
+  background: linear-gradient(135deg, #ffb703, #fb8500);
+  color: #121212;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.generate-btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+.generate-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.generate-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: #555;
+  color: #888;
+}
