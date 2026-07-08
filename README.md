@@ -37,4 +37,5 @@ For production deployment, the backend serves the built frontend and API from on
 ### Optional environment variables
 - `PORT` (default `3001`)
 - `VITE_API_BASE_URL` (leave empty when frontend and backend are served together)
+- `VITE_API_PROXY_TARGET` (Vite dev proxy target, default `http://localhost:3001`)
 - `VITE_BASE_PATH` (set only when deploying under a subpath, e.g. `/Regenerator/`)
