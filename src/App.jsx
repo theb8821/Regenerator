@@ -11,8 +11,8 @@ function App() {
     { name: "Pick 4", placeholder: "X - X - X - X", generator: () => generatePick(4) },
     { name: "Pick 5", placeholder: "X - X - X - X - X", generator: () => generatePick(5) },
     { name: "Lotto", placeholder: "XX - XX - XX - XX - XX - XX", generator: generateLotto },
-    { name: "Powerball", placeholder: "XX - XX - XX - XX - XX | PB: XX", generator: generatePowerball },
-    { name: "Mega Millions", placeholder: "XX - XX - XX - XX - XX | MB: XX", generator: generateMegaMillions }
+    { name: "Powerball", placeholder: "XX - XX - XX - XX - XX\nPB: XX", generator: generatePowerball },
+    { name: "Mega Millions", placeholder: "XX - XX - XX - XX - XX\nMB: XX", generator: generateMegaMillions }
   ];
 
   return (

@@ -8,7 +8,6 @@ const Header = () => {
         <h1 className="brand-title">
           <span className="brand-accent">Re</span>generator
         </h1>
-        <p className="brand-subtitle">Louisiana Lottery Number Generator</p>
       </div>
     </header>
   );

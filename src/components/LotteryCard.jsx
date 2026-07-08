@@ -19,10 +19,6 @@ const LotteryCard = ({ game }) => {
     <div className="lottery-card">
       <div className="card-header">
         <h2 className="game-name">{game.name}</h2>
-        <div className="game-logo-placeholder">
-          {/* Logo will go here later */}
-          <div className="logo-circle">LA</div>
-        </div>
       </div>
       <div className="card-body">
         <div className={`numbers-display ${isGenerating ? 'generating' : ''}`}>

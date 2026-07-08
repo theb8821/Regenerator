@@ -40,12 +40,12 @@ export const generatePowerball = () => {
   // Powerball: 5 distinct from 1-69 and 1 PB from 1-26
   const mainNums = generateUniqueNumbers(5, 1, 69);
   const pb = getCryptoRandomInt(1, 26);
-  return `${mainNums.map(n => n.toString().padStart(2, '0')).join(' - ')} | PB: ${pb.toString().padStart(2, '0')}`;
+  return `${mainNums.map(n => n.toString().padStart(2, '0')).join(' - ')}\nPB: ${pb.toString().padStart(2, '0')}`;
 };
 
 export const generateMegaMillions = () => {
   // Mega Millions: 5 distinct from 1-70 and 1 MB from 1-25
   const mainNums = generateUniqueNumbers(5, 1, 70);
   const mb = getCryptoRandomInt(1, 25);
-  return `${mainNums.map(n => n.toString().padStart(2, '0')).join(' - ')} | MB: ${mb.toString().padStart(2, '0')}`;
+  return `${mainNums.map(n => n.toString().padStart(2, '0')).join(' - ')}\nMB: ${mb.toString().padStart(2, '0')}`;
 };
