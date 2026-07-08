@@ -1,9 +1,17 @@
 import express from 'express';
 import cors from 'cors';
 import axios from 'axios';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(cors());
+
+// Serve the static React build files
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // Backend Cache: Store data in memory so we only scrape once per day
 let scrapedDataCache = null;
@@ -76,6 +84,11 @@ app.get('/api/history', async (req, res) => {
     console.error("Error processing CSVs:", error.message);
     res.status(500).json({ error: "Failed to process CSV data." });
   }
+});
+
+// Serve the React frontend for any unknown routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 const PORT = 3001;

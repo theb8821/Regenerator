@@ -1,16 +1,35 @@
-# React + Vite
+# Louisiana Lottery Generator (Smart Extrapolation Edition)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A beautifully designed, full-stack React application built to generate highly secure and algorithmically extrapolated lottery numbers. 
 
-Currently, two official plugins are available:
+## Features
+* **Crypto-Secure Generation:** Uses the Web Crypto API and rejection sampling to generate numbers with mathematically proven zero modulo bias.
+* **Smart Extrapolation (Live Data):** A custom Node.js Express backend directly downloads and parses the latest static CSV results from the official Louisiana Lottery servers. The app uses this history to algorithmically construct "Smart" guesses based on historical trends (Mirror rundowns, Delta patterns, Hot/Cold bounds).
+* **Smart Caching:** The backend caches scraped data for 24 hours in memory, massively reducing server load and guaranteeing instant API responses for users.
+* **Premium UI:** A high-fidelity, glowing dark-mode interface built with Vanilla CSS Grid.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## How to Run Locally
 
-## React Compiler
+This is a Full-Stack application.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Expanding the Oxlint configuration
+2. **Start the Backend Server (Port 3001):**
+   ```bash
+   node server.js
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+3. **Start the Frontend UI (Port 5173):**
+   *(In a new terminal window)*
+   ```bash
+   npm run dev
+   ```
+
+## Deployment
+For production deployment, the backend is already configured to serve the frontend!
+1. Build the frontend: `npm run build`
+2. Start the server: `node server.js`
+The server will expose the API and serve the built React files simultaneously on port 3001.
