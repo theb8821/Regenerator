@@ -9,16 +9,17 @@ import './App.css';
 function App() {
   const [method, setMethod] = useState('random'); // 'random' or 'extrapolate'
   const [historyData, setHistoryData] = useState({});
+  const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '');
 
   useEffect(() => {
     if (method === 'extrapolate' && Object.keys(historyData).length === 0) {
       // Fetch live CSV data from our Node.js backend
-      fetch('https://regenerator.onrender.com/api/history')
+      fetch(`${apiBaseUrl}/api/history`)
         .then(res => res.json())
         .then(data => setHistoryData(data))
         .catch(err => console.error("Failed to fetch history:", err));
     }
-  }, [method]);
+  }, [method, historyData, apiBaseUrl]);
 
   // Pass only the specific game's history array into its extrapolator
   const games = [
