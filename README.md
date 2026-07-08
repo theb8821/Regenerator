@@ -29,7 +29,13 @@ This is a Full-Stack application.
    ```
 
 ## Deployment
-For production deployment, the backend is already configured to serve the frontend!
-1. Build the frontend: `npm run build`
-2. Start the server: `node server.js`
-The server will expose the API and serve the built React files simultaneously on port 3001.
+For production deployment, the backend serves the built frontend and API from one service.
+1. Install dependencies: `npm install`
+2. Build the frontend: `npm run build`
+3. Start the server: `node server.js`
+
+### Optional environment variables
+- `PORT` (default `3001`)
+- `VITE_API_BASE_URL` (leave empty when frontend and backend are served together)
+- `VITE_API_PROXY_TARGET` (Vite dev proxy target, default `http://localhost:3001`)
+- `VITE_BASE_PATH` (set only when deploying under a subpath, e.g. `/Regenerator/`)
